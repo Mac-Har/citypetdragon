@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apartment Dragon 🐉 - City Pet Companion</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="game-container">
+    <!-- Top Bar Navigation & Atmosphere Status -->
+    <header id="top-bar">
+      <div class="brand">
+        <span class="brand-icon">🏙️🐉</span>
+        <div class="brand-text">
+          <h1>Apartment Dragon</h1>
+          <span class="sub-text">City Pet Companion</span>
+        </div>
+      </div>
+
+      <div class="time-widget" id="time-widget" title="Environment updates automatically based on your system clock!">
+        <div class="time-badge" id="time-badge">
+          <span class="time-icon" id="time-icon">☀️</span>
+          <div class="time-info">
+            <span class="time-label" id="time-phase-label">Daytime</span>
+            <span class="clock-display" id="clock-display">12:00 PM</span>
+          </div>
+        </div>
+
+        <div class="time-controls">
+          <select id="time-mode-select" title="Time Source">
+            <option value="system">⏰ System Clock (Live)</option>
+            <option value="dawn">🌄 Dawn (6 AM)</option>
+            <option value="day">☀️ Day (12 PM)</option>
+            <option value="sunset">🌅 Sunset (6 PM)</option>
+            <option value="night">🌙 Night (10 PM)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <button id="btn-journal" class="icon-btn" title="Dragon Memories & Journal">
+          <span class="btn-emoji">📖</span>
+          <span class="btn-text">Journal</span>
+          <span class="notification-dot" id="journal-dot" style="display:none;"></span>
+        </button>
+        <button id="btn-profile" class="icon-btn" title="Dragon Profile & Customization">
+          <span class="btn-emoji">✨</span>
+          <span class="btn-text">Customize</span>
+        </button>
+        <button id="btn-save-load" class="icon-btn" title="Save & Load Game">
+          <span class="btn-emoji">💾</span>
+          <span class="btn-text">Save / Load</span>
+        </button>
+        <button id="btn-audio" class="icon-btn" title="Sound Effects">
+          <span class="btn-emoji" id="audio-icon">🔊</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Game Play Area -->
+    <main id="main-stage">
+      <!-- Apartment Room Container -->
+      <div id="apartment-room" class="apartment-theme-day">
+        <!-- Room Wall Background with City Window -->
+        <div class="room-wall">
+          <!-- The Large Panoramic City Window -->
+          <div class="city-window-frame" id="city-window">
+            <div class="window-glass">
+              <!-- Sky Layer: dynamic gradient, stars, moon, sun, clouds -->
+              <div class="sky-backdrop" id="sky-backdrop">
+                <div class="celestial sun" id="sun"></div>
+                <div class="celestial moon" id="moon">
+                  <div class="moon-craters"></div>
+                </div>
+                <div class="stars-layer" id="stars-layer"></div>
+                <div class="clouds-layer" id="clouds-layer">
+                  <div class="cloud cloud-1"></div>
+                  <div class="cloud cloud-2"></div>
+                  <div class="cloud cloud-3"></div>
+                </div>
+              </div>
+
+              <!-- Distant City Skyline Silhouettes -->
+              <div class="skyline-far" id="skyline-far"></div>
+              <!-- Mid-range Skyscrapers with lit windows -->
+              <div class="skyline-mid" id="skyline-mid"></div>
+              <!-- Foreground City Rooftops with antenna towers -->
+              <div class="skyline-fore" id="skyline-fore"></div>
+
+              <!-- Window Glass Glare & Rain/Steam effect -->
+              <div class="glass-glare"></div>
+              <div class="window-sill" id="window-sill" title="The dragon loves looking out the window!">
+                <span class="sill-reflection"></span>
+              </div>
+            </div>
+            <!-- Window Frame Dividers -->
+            <div class="window-bar horizontal"></div>
+            <div class="window-bar vertical"></div>
+          </div>
+
+          <!-- Wall Decor -->
+          <div class="wall-decorations">
+            <!-- Fairy String Lights hanging across the ceiling/window -->
+            <div class="fairy-lights" id="fairy-lights">
+              <span class="light-bulb b1"></span>
+              <span class="light-bulb b2"></span>
+              <span class="light-bulb b3"></span>
+              <span class="light-bulb b4"></span>
+              <span class="light-bulb b5"></span>
+              <span class="light-bulb b6"></span>
+              <span class="light-bulb b7"></span>
+              <span class="light-bulb b8"></span>
+            </div>
+
+            <!-- Wall Shelf with Dragon Books and Trinkets -->
+            <div class="wall-shelf">
+              <div class="shelf-board"></div>
+              <div class="shelf-items">
+                <span class="shelf-book b-red" title="Caring for High-Rise Drakes"></span>
+                <span class="shelf-book b-blue" title="City Birds & Flying Basics"></span>
+                <span class="shelf-book b-gold" title="History of Urban Dragons"></span>
+                <div class="photo-frame" title="Adoption Day Memory">
+                  <span class="frame-photo">🥚</span>
+                </div>
+                <span class="shelf-crystal" title="Fire Hearth Crystal">🔮</span>
+              </div>
+            </div>
+
+            <!-- Houseplant with slight scorch mark -->
+            <div class="house-plant" title="Apartment Monstera (slightly toasted)">
+              <div class="pot"></div>
+              <div class="leaves">
+                <div class="leaf l1"></div>
+                <div class="leaf l2"></div>
+                <div class="leaf l3 singed" title="Tiny scorch mark from baby sneeze!"></div>
+              </div>
+            </div>
+
+            <!-- Cozy Floor Lamp for evening illumination -->
+            <div class="floor-lamp" id="floor-lamp">
+              <div class="lamp-shade"></div>
+              <div class="lamp-glow"></div>
+              <div class="lamp-pole"></div>
+              <div class="lamp-base"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Room Hardwood Floor & Furniture -->
+        <div class="room-floor" id="room-floor">
+          <!-- Dynamic Sunbeam / Moonlight Cast on the Floor -->
+          <div class="floor-light-beam" id="floor-light-beam"></div>
+
+          <!-- Dragon Bowls Area -->
+          <div class="bowls-area">
+            <div class="bowl-container food-bowl-wrap" id="food-bowl-wrap" title="Dragon Food Dish">
+              <div class="bowl-label">Munchies</div>
+              <div class="bowl food-bowl" id="food-bowl">
+                <div class="bowl-rim"></div>
+                <div class="food-content" id="food-bowl-content"></div>
+              </div>
+            </div>
+
+            <div class="bowl-container water-bowl-wrap" id="water-bowl-wrap" title="Fresh Spring Water Dish">
+              <div class="bowl-label">Water</div>
+              <div class="bowl water-bowl" id="water-bowl">
+                <div class="bowl-rim"></div>
+                <div class="water-content" id="water-bowl-content">
+                  <div class="water-shimmer"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dragon Nest & Hoard Zone -->
+          <div class="dragon-nest-zone" id="dragon-nest-zone" title="Dragon's Warm Apartment Nest">
+            <div class="nest-cushion">
+              <div class="nest-embers" id="nest-embers"></div>
+            </div>
+            <!-- City Treasure Hoard -->
+            <div class="dragon-hoard" title="City Trinket Hoard: Shiny keys, soda tabs, and coins!">
+              <span class="hoard-item item-coin">🪙</span>
+              <span class="hoard-item item-key">🗝️</span>
+              <span class="hoard-item item-gem">💎</span>
+              <span class="hoard-item item-tab">🥫</span>
+              <span class="hoard-item item-die">🎲</span>
+            </div>
+          </div>
+
+          <!-- The Dragon Actor -->
+          <div class="dragon-container" id="dragon-container">
+            <!-- Thought / Speech Bubble -->
+            <div class="speech-bubble" id="speech-bubble">
+              <span class="bubble-text" id="bubble-text">Rrr-chirp!</span>
+              <div class="bubble-tail"></div>
+            </div>
+
+            <!-- Floating Hearts / Reactions -->
+            <div class="reaction-layer" id="reaction-layer"></div>
+
+            <!-- Dragon SVG Graphic with Animated Elements -->
+            <div class="dragon-character" id="dragon-character">
+              <!-- Dynamically populated or rendered SVG for current stage & skin -->
+              <svg id="dragon-svg" viewBox="0 0 320 280" class="dragon-svg" xmlns="http://www.w3.org/2000/svg">
+                <!-- SVG body parts rendered via dragon.js -->
+              </svg>
+            </div>
+
+            <!-- Dragon Shadow -->
+            <div class="dragon-shadow" id="dragon-shadow"></div>
+
+            <!-- Clickable Interactive Hitbox -->
+            <div class="dragon-hitbox" id="dragon-hitbox" title="Click to pet your dragon!"></div>
+          </div>
+
+          <!-- Interactive Play Objects (Ball, Laser Spark, Food projectile) -->
+          <div id="play-toy-layer">
+            <div id="dragon-ball" class="dragon-toy dragon-ball" style="display:none;" title="Click to toss!">⚽</div>
+            <div id="laser-pointer-dot" class="laser-dot" style="display:none;"></div>
+            <div id="flying-food" class="flying-treat" style="display:none;">🍖</div>
+          </div>
+
+          <!-- Particle Canvas for smoke, embers, grooming sparkles, water splashes -->
+          <canvas id="particle-canvas"></canvas>
+        </div>
+
+        <!-- Room Lighting Tint Overlay (Transitions with real time) -->
+        <div class="room-lighting-overlay" id="room-lighting-overlay"></div>
+
+        <!-- Ambient Particle Layer (Motes of dust, floating embers) -->
+        <div class="ambient-particles" id="ambient-particles"></div>
+      </div>
+
+      <!-- Dragon Status & Growth Dashboard -->
+      <section id="dragon-dashboard">
+        <div class="dragon-identity">
+          <div class="identity-header">
+            <h2 id="dragon-name-display">Ember</h2>
+            <span class="stage-badge" id="dragon-stage-badge">Baby Hatchling</span>
+          </div>
+          <div class="dragon-meta">
+            <span class="meta-item" id="dragon-age-display" title="Real-world elapsed age">Age: 1 Day, 0 Hours</span>
+            <span class="meta-separator">•</span>
+            <span class="meta-item" id="dragon-mood-display">Mood: Playful & Happy</span>
+            <span class="meta-separator">•</span>
+            <span class="meta-item" id="dragon-growth-progress-display">Growth: 15%</span>
+          </div>
+
+          <!-- Growth Progress Bar towards next stage -->
+          <div class="growth-meter-container" title="Care for your dragon to help them grow!">
+            <div class="growth-meter-track">
+              <div class="growth-meter-fill" id="growth-meter-fill" style="width: 15%;"></div>
+            </div>
+            <div class="growth-meter-labels">
+              <span id="growth-curr-stage">Hatchling</span>
+              <span id="growth-target-info">Next Stage: Juvenile</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- The 4 Core Meters -->
+        <div class="meters-grid">
+          <!-- Food Meter -->
+          <div class="meter-card" id="meter-card-food">
+            <div class="meter-header">
+              <span class="meter-icon">🍖</span>
+              <span class="meter-name">Food</span>
+              <span class="meter-val" id="val-food">85%</span>
+            </div>
+            <div class="meter-bar-track">
+              <div class="meter-bar-fill fill-food" id="bar-food" style="width: 85%;"></div>
+            </div>
+            <span class="meter-status" id="status-food">Well Fed</span>
+          </div>
+
+          <!-- Water Meter -->
+          <div class="meter-card" id="meter-card-water">
+            <div class="meter-header">
+              <span class="meter-icon">💧</span>
+              <span class="meter-name">Water</span>
+              <span class="meter-val" id="val-water">90%</span>
+            </div>
+            <div class="meter-bar-track">
+              <div class="meter-bar-fill fill-water" id="bar-water" style="width: 90%;"></div>
+            </div>
+            <span class="meter-status" id="status-water">Hydrated</span>
+          </div>
+
+          <!-- Play Meter -->
+          <div class="meter-card" id="meter-card-play">
+            <div class="meter-header">
+              <span class="meter-icon">🎾</span>
+              <span class="meter-name">Play</span>
+              <span class="meter-val" id="val-play">75%</span>
+            </div>
+            <div class="meter-bar-track">
+              <div class="meter-bar-fill fill-play" id="bar-play" style="width: 75%;"></div>
+            </div>
+            <span class="meter-status" id="status-play">Energetic</span>
+          </div>
+
+          <!-- Care Meter -->
+          <div class="meter-card" id="meter-card-care">
+            <div class="meter-header">
+              <span class="meter-icon">💖</span>
+              <span class="meter-name">Care</span>
+              <span class="meter-val" id="val-care">80%</span>
+            </div>
+            <div class="meter-bar-track">
+              <div class="meter-bar-fill fill-care" id="bar-care" style="width: 80%;"></div>
+            </div>
+            <span class="meter-status" id="status-care">Gleaming Scales</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Action Dock: Feed, Water, Play, Groom, Nest, Window -->
+      <footer id="actions-dock">
+        <!-- Feed Action Button & Popover Tray -->
+        <div class="action-slot">
+          <button class="action-btn" id="btn-action-feed" title="Feed your dragon delicious city treats!">
+            <span class="act-emoji">🍖</span>
+            <span class="act-title">Feed</span>
+          </button>
+          <!-- Food Menu Drawer -->
+          <div class="sub-drawer" id="food-drawer" style="display:none;">
+            <button class="food-item-btn" data-food="meat" title="Juicy Roast Beef (+25 Food)">
+              <span class="food-icon">🥩</span>
+              <span class="food-name">Roast Meat</span>
+            </button>
+            <button class="food-item-btn" data-food="fish" title="Fresh River Salmon (+20 Food, +5 Water)">
+              <span class="food-icon">🐟</span>
+              <span class="food-name">River Fish</span>
+            </button>
+            <button class="food-item-btn" data-food="berry" title="Spicy Fire Berries (+15 Food, +10 Play)">
+              <span class="food-icon">🌶️</span>
+              <span class="food-name">Fire Berry</span>
+            </button>
+            <button class="food-item-btn" data-food="cracker" title="City Honey Biscuit (+10 Food, +15 Care)">
+              <span class="food-icon">🍪</span>
+              <span class="food-name">Honey Biscuit</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Water Action Button -->
+        <div class="action-slot">
+          <button class="action-btn" id="btn-action-water" title="Refill water dish with cool spring water">
+            <span class="act-emoji">💧</span>
+            <span class="act-title">Give Water</span>
+          </button>
+        </div>
+
+        <!-- Play Action Button & Popover Tray -->
+        <div class="action-slot">
+          <button class="action-btn" id="btn-action-play" title="Play and exercise with your dragon">
+            <span class="act-emoji">🎾</span>
+            <span class="act-title">Play</span>
+          </button>
+          <!-- Play Options Drawer -->
+          <div class="sub-drawer" id="play-drawer" style="display:none;">
+            <button class="play-item-btn" id="btn-play-ball" title="Bounce the dragon play ball around the room">
+              <span class="play-icon">⚽</span>
+              <span class="play-name">Toss Ball</span>
+            </button>
+            <button class="play-item-btn" id="btn-play-laser" title="Guide a warm ember laser spark on the floor">
+              <span class="play-icon">✨</span>
+              <span class="play-name">Chase Spark</span>
+            </button>
+            <button class="play-item-btn" id="btn-play-minigame" title="Play 'Skyline Embers' arcade minigame!">
+              <span class="play-icon">🏙️</span>
+              <span class="play-name">Skyline Game</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Groom / Care Action Button -->
+        <div class="action-slot">
+          <button class="action-btn" id="btn-action-groom" title="Brush scales and polish horns">
+            <span class="act-emoji">✨</span>
+            <span class="act-title">Groom</span>
+          </button>
+        </div>
+
+        <!-- Rest / Nest Button -->
+        <div class="action-slot">
+          <button class="action-btn" id="btn-action-nap" title="Let dragon rest in the warm ember nest">
+            <span class="act-emoji">💤</span>
+            <span class="act-title">Nap</span>
+          </button>
+        </div>
+
+        <!-- Window Perch Button -->
+        <div class="action-slot">
+          <button class="action-btn" id="btn-action-window" title="Encourage dragon to gaze out the city window">
+            <span class="act-emoji">🏙️</span>
+            <span class="act-title">Window View</span>
+          </button>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Brush Cursor Element when Grooming Mode is Active -->
+    <div id="groom-brush-cursor" class="groom-brush" style="display:none;">
+      <span>🪮</span>
+    </div>
+
+    <!-- Active Mode Indicator Banner (e.g. "Grooming Mode: Stroke your dragon!", "Playing: Chase the spark!") -->
+    <div id="mode-banner" class="mode-banner" style="display:none;">
+      <span id="mode-banner-text">Grooming Mode: Move your brush over the dragon to polish scales!</span>
+      <button id="btn-exit-mode" class="mode-exit-btn">Done ✕</button>
+    </div>
+
+    <!-- Notification Toaster -->
+    <div id="notification-toaster" class="toast-container"></div>
+
+    <!-- ==================== MODALS ==================== -->
+
+    <!-- Save & Load Modal -->
+    <div class="modal-backdrop" id="modal-save-load" style="display:none;">
+      <div class="modal-window">
+        <div class="modal-header">
+          <h3>💾 Game Save & Load</h3>
+          <button class="close-modal-btn" data-close="modal-save-load">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="auto-save-status">
+            <span class="pulse-dot"></span>
+            <span id="auto-save-text">Auto-save: Active (Saved just now)</span>
+          </div>
+
+          <!-- Save Slots -->
+          <h4>Select Save Slot</h4>
+          <div class="slots-container" id="save-slots-container">
+            <!-- Slot 1 -->
+            <div class="slot-card" data-slot="1">
+              <div class="slot-info">
+                <span class="slot-title">Slot 1</span>
+                <span class="slot-desc" id="slot-desc-1">Empty Slot</span>
+              </div>
+              <div class="slot-actions">
+                <button class="slot-btn btn-slot-save" data-slot="1">Save</button>
+                <button class="slot-btn btn-slot-load" data-slot="1" disabled>Load</button>
+              </div>
+            </div>
+            <!-- Slot 2 -->
+            <div class="slot-card" data-slot="2">
+              <div class="slot-info">
+                <span class="slot-title">Slot 2</span>
+                <span class="slot-desc" id="slot-desc-2">Empty Slot</span>
+              </div>
+              <div class="slot-actions">
+                <button class="slot-btn btn-slot-save" data-slot="2">Save</button>
+                <button class="slot-btn btn-slot-load" data-slot="2" disabled>Load</button>
+              </div>
+            </div>
+            <!-- Slot 3 -->
+            <div class="slot-card" data-slot="3">
+              <div class="slot-info">
+                <span class="slot-title">Slot 3</span>
+                <span class="slot-desc" id="slot-desc-3">Empty Slot</span>
+              </div>
+              <div class="slot-actions">
+                <button class="slot-btn btn-slot-save" data-slot="3">Save</button>
+                <button class="slot-btn btn-slot-load" data-slot="3" disabled>Load</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Export & Import JSON Save File -->
+          <div class="backup-section">
+            <h4>File Backup & Restore</h4>
+            <p class="backup-note">Download your save data as a JSON file or import a previous save.</p>
+            <div class="backup-buttons">
+              <button id="btn-export-save" class="btn-secondary">📥 Export Save to File</button>
+              <label class="btn-secondary file-input-label">
+                📤 Import Save from File
+                <input type="file" id="import-save-input" accept=".json" style="display:none;">
+              </label>
+            </div>
+          </div>
+
+          <!-- Reset / New Game -->
+          <div class="danger-zone">
+            <button id="btn-new-game" class="btn-danger">🥚 Start New Dragon</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Journal & Time Memories Modal -->
+    <div class="modal-backdrop" id="modal-journal" style="display:none;">
+      <div class="modal-window wide-modal">
+        <div class="modal-header">
+          <h3>📖 Dragon Apartment Journal</h3>
+          <button class="close-modal-btn" data-close="modal-journal">✕</button>
+        </div>
+        <div class="modal-body journal-body">
+          <div class="journal-stats-banner">
+            <div class="stat-pill">
+              <span class="stat-label">Adoption Date:</span>
+              <span class="stat-val" id="journal-birth-date">Nov 21, 2026</span>
+            </div>
+            <div class="stat-pill">
+              <span class="stat-label">Total Time Together:</span>
+              <span class="stat-val" id="journal-total-time">0 days, 1 hour</span>
+            </div>
+            <div class="stat-pill">
+              <span class="stat-label">Current Life Stage:</span>
+              <span class="stat-val" id="journal-current-stage">Hatchling</span>
+            </div>
+            <div class="stat-pill">
+              <span class="stat-label">Times Fed:</span>
+              <span class="stat-val" id="journal-feed-count">0</span>
+            </div>
+          </div>
+
+          <h4>City Living Milestones & Memories</h4>
+          <div class="timeline-container" id="journal-timeline">
+            <!-- Timeline entries generated dynamically -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dragon Profile & Customization Modal -->
+    <div class="modal-backdrop" id="modal-profile" style="display:none;">
+      <div class="modal-window">
+        <div class="modal-header">
+          <h3>✨ Dragon Profile & Palette</h3>
+          <button class="close-modal-btn" data-close="modal-profile">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="profile-form">
+            <label for="dragon-name-input">Dragon's Name:</label>
+            <div class="input-with-button">
+              <input type="text" id="dragon-name-input" maxlength="18" placeholder="Name your dragon...">
+              <button id="btn-save-name" class="btn-primary">Rename</button>
+            </div>
+          </div>
+
+          <h4>Dragon Scale Palette</h4>
+          <div class="color-palette-grid" id="color-palette-grid">
+            <button class="palette-choice active" data-palette="ruby">
+              <span class="swatch" style="background: linear-gradient(135deg, #e74c3c, #f39c12);"></span>
+              <span class="palette-name">Ruby Ember</span>
+            </button>
+            <button class="palette-choice" data-palette="emerald">
+              <span class="swatch" style="background: linear-gradient(135deg, #27ae60, #2ecc71);"></span>
+              <span class="palette-name">Emerald Jade</span>
+            </button>
+            <button class="palette-choice" data-palette="sapphire">
+              <span class="swatch" style="background: linear-gradient(135deg, #2980b9, #00d2d3);"></span>
+              <span class="palette-name">Sapphire Sky</span>
+            </button>
+            <button class="palette-choice" data-palette="amethyst">
+              <span class="swatch" style="background: linear-gradient(135deg, #8e44ad, #d980fa);"></span>
+              <span class="palette-name">Amethyst Dusk</span>
+            </button>
+            <button class="palette-choice" data-palette="gold">
+              <span class="swatch" style="background: linear-gradient(135deg, #f1c40f, #f39c12);"></span>
+              <span class="palette-name">Golden Sol</span>
+            </button>
+            <button class="palette-choice" data-palette="obsidian">
+              <span class="swatch" style="background: linear-gradient(135deg, #2c3e50, #00cec9);"></span>
+              <span class="palette-name">Obsidian Neon</span>
+            </button>
+          </div>
+
+          <!-- Time Simulation & Growth Speed Options for Testing / Fun -->
+          <div class="growth-speed-section">
+            <h4>Growth Acceleration (Preview)</h4>
+            <p class="section-desc">By default, your dragon grows gracefully across real days. You can also grant "Dragon Embers" to preview older stages!</p>
+            <div class="growth-buttons">
+              <button id="btn-grow-stage" class="btn-secondary">✨ Grant Growth Spark (+25%)</button>
+              <button id="btn-grow-max" class="btn-secondary">👑 Reach Next Stage</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skyline Embers Minigame Modal -->
+    <div class="modal-backdrop" id="modal-minigame" style="display:none;">
+      <div class="modal-window minigame-modal">
+        <div class="modal-header">
+          <h3>🏙️ Skyline Spark Catcher</h3>
+          <button class="close-modal-btn" data-close="modal-minigame">✕</button>
+        </div>
+        <div class="modal-body">
+          <p class="minigame-instructions">Move your basket/net with the mouse or arrow keys to catch falling golden city embers! (+Play & +Care)</p>
+          <div class="minigame-score-bar">
+            <span>Score: <b id="minigame-score">0</b></span>
+            <span>Time Left: <b id="minigame-time">20s</b></span>
+          </div>
+          <div class="minigame-canvas-wrap">
+            <canvas id="minigame-canvas" width="480" height="320"></canvas>
+            <div id="minigame-overlay" class="minigame-overlay">
+              <button id="btn-start-minigame" class="btn-primary pulse">Catch Embers!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Welcome Back / Offline Progress Modal -->
+    <div class="modal-backdrop" id="modal-welcome-back" style="display:none;">
+      <div class="modal-window">
+        <div class="modal-header">
+          <h3>🏙️ Welcome Back to the Apartment!</h3>
+          <button class="close-modal-btn" data-close="modal-welcome-back">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="welcome-back-art">
+            <span class="art-icon">🌆🐉</span>
+          </div>
+          <p id="welcome-back-time-text" class="welcome-time-text">You were away from your dragon for 3 hours and 20 minutes.</p>
+          <div class="offline-events-box" id="offline-events-list">
+            <!-- Offline happenings -->
+          </div>
+          <button class="btn-primary" id="btn-acknowledge-return">Give <span id="welcome-dragon-name">Ember</span> a Hug!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio and Game Scripts -->
+  <script src="audio.js"></script>
+  <script src="city.js"></script>
+  <script src="dragon.js"></script>
+  <script src="minigame.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

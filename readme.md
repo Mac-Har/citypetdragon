@@ -15,6 +15,7 @@ The environment should look different based on the system clock, windows should 
 The dragon should have a food, water, play, and care meters, with feeding them, giving them water, playing with them, and grooming them being the ways to replenish them
 The dragon should grow and have some acknoledgement of time passed
 - This dragon graphic for later stages of evolution appears wrong, do fix it
+- The dragon is rendered behind the background, please fix
 Screenshots: Included in this folder
 Future improvements: More minigames, more dragon evolutions, possibly raising multiple dragons
 

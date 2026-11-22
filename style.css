@@ -1915,6 +1915,13 @@ body {
   .room-wall {
     height: 240px;
   }
+  .room-floor {
+    height: 140px;
+  }
+  .dragon-container.at-window {
+    bottom: 110px !important;
+    transform: translateX(-50%) scale(0.75) !important;
+  }
   .city-window-frame {
     width: 85%;
     height: 190px;

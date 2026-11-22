@@ -15,3 +15,21 @@ The environment should look different based on the system clock, windows should 
 The dragon should have a food, water, play, and care meters, with feeding them, giving them water, playing with them, and grooming them being the ways to replenish them
 The dragon should grow and have some acknoledgement of time passed
 - This dragon graphic for later stages of evolution appears wrong, do fix it
+Screenshots: Included in this folder
+Future improvements: More minigames, more dragon evolutions, possibly raising multiple dragons
+
+
+Reflection:
+What did the AI do particularly well?
+The AI did the initial application well, everything worked with minor issues
+What did the AI do poorly?
+Iterating on the program didn't go well, I ran into a lot of rate limits and the smallest edits required a lot of time
+How did you verify AI-generated code?
+I ran through the game and tested everything manually
+How did your prompts evolve?
+I noticed the problems with the game and asked the AI to fix it
+What did you learn?
+That I should probably learn how to use local LLMs, even if they are slower, I won't run into these expenses and rate limits.
+
+Would you trust AI to build the entire application without human supervision?
+I don't see the issue in such a small game, the majority of the game was done in the first prompt

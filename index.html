@@ -190,43 +190,43 @@
               <span class="hoard-item item-die">🎲</span>
             </div>
           </div>
-
-          <!-- The Dragon Actor -->
-          <div class="dragon-container" id="dragon-container">
-            <!-- Thought / Speech Bubble -->
-            <div class="speech-bubble" id="speech-bubble">
-              <span class="bubble-text" id="bubble-text">Rrr-chirp!</span>
-              <div class="bubble-tail"></div>
-            </div>
-
-            <!-- Floating Hearts / Reactions -->
-            <div class="reaction-layer" id="reaction-layer"></div>
-
-            <!-- Dragon SVG Graphic with Animated Elements -->
-            <div class="dragon-character" id="dragon-character">
-              <!-- Dynamically populated or rendered SVG for current stage & skin -->
-              <svg id="dragon-svg" viewBox="0 0 320 280" class="dragon-svg" xmlns="http://www.w3.org/2000/svg">
-                <!-- SVG body parts rendered via dragon.js -->
-              </svg>
-            </div>
-
-            <!-- Dragon Shadow -->
-            <div class="dragon-shadow" id="dragon-shadow"></div>
-
-            <!-- Clickable Interactive Hitbox -->
-            <div class="dragon-hitbox" id="dragon-hitbox" title="Click to pet your dragon!"></div>
-          </div>
-
-          <!-- Interactive Play Objects (Ball, Laser Spark, Food projectile) -->
-          <div id="play-toy-layer">
-            <div id="dragon-ball" class="dragon-toy dragon-ball" style="display:none;" title="Click to toss!">⚽</div>
-            <div id="laser-pointer-dot" class="laser-dot" style="display:none;"></div>
-            <div id="flying-food" class="flying-treat" style="display:none;">🍖</div>
-          </div>
-
-          <!-- Particle Canvas for smoke, embers, grooming sparkles, water splashes -->
-          <canvas id="particle-canvas"></canvas>
         </div>
+
+        <!-- The Dragon Actor -->
+        <div class="dragon-container" id="dragon-container">
+          <!-- Thought / Speech Bubble -->
+          <div class="speech-bubble" id="speech-bubble">
+            <span class="bubble-text" id="bubble-text">Rrr-chirp!</span>
+            <div class="bubble-tail"></div>
+          </div>
+
+          <!-- Floating Hearts / Reactions -->
+          <div class="reaction-layer" id="reaction-layer"></div>
+
+          <!-- Dragon SVG Graphic with Animated Elements -->
+          <div class="dragon-character" id="dragon-character">
+            <!-- Dynamically populated or rendered SVG for current stage & skin -->
+            <svg id="dragon-svg" viewBox="0 0 320 280" class="dragon-svg" xmlns="http://www.w3.org/2000/svg">
+              <!-- SVG body parts rendered via dragon.js -->
+            </svg>
+          </div>
+
+          <!-- Dragon Shadow -->
+          <div class="dragon-shadow" id="dragon-shadow"></div>
+
+          <!-- Clickable Interactive Hitbox -->
+          <div class="dragon-hitbox" id="dragon-hitbox" title="Click to pet your dragon!"></div>
+        </div>
+
+        <!-- Interactive Play Objects (Ball, Laser Spark, Food projectile) -->
+        <div id="play-toy-layer">
+          <div id="dragon-ball" class="dragon-toy dragon-ball" style="display:none;" title="Click to toss!">⚽</div>
+          <div id="laser-pointer-dot" class="laser-dot" style="display:none;"></div>
+          <div id="flying-food" class="flying-treat" style="display:none;">🍖</div>
+        </div>
+
+        <!-- Particle Canvas for smoke, embers, grooming sparkles, water splashes -->
+        <canvas id="particle-canvas"></canvas>
 
         <!-- Room Lighting Tint Overlay (Transitions with real time) -->
         <div class="room-lighting-overlay" id="room-lighting-overlay"></div>

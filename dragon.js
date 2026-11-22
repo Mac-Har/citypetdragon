@@ -303,6 +303,7 @@ class DragonPet {
     // Move slightly towards food bowl
     if (this.container) {
       this.container.classList.add('at-bowl');
+      this.container.classList.remove('at-window', 'at-nest');
       setTimeout(() => {
         if (this.currentAction !== 'sleeping') {
           this.container.classList.remove('at-bowl');
@@ -331,6 +332,7 @@ class DragonPet {
 
     if (this.container) {
       this.container.classList.add('at-bowl');
+      this.container.classList.remove('at-window', 'at-nest');
       setTimeout(() => {
         if (this.currentAction !== 'sleeping') {
           this.container.classList.remove('at-bowl');

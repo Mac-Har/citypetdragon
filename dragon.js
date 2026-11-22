@@ -788,68 +788,78 @@ class DragonPet {
 
       <!-- Longer Tail with Crest -->
       <g class="dragon-tail">
-        <path d="M 115 185 Q 50 195 25 150 Q 15 130 5 135 Q 25 175 105 210 Z" fill="${p.primaryDark}" />
+        <path d="M 120 185 Q 70 195 45 160 Q 32 142 22 146 Q 38 180 112 212 Z" fill="${p.primaryDark}" />
         <!-- Tail Flame Spade -->
-        <path d="M 5 135 Q -8 115 6 108 Q 18 122 5 135 Z" fill="${p.wingMembrane}" />
-        <circle cx="6" cy="122" r="3" fill="${p.belly}" />
+        <path d="M 22 146 Q 10 128 24 120 Q 34 135 22 146 Z" fill="${p.wingMembrane}" />
+        <circle cx="24" cy="133" r="3" fill="${p.belly}" />
       </g>
 
       <!-- Back Wing (Juvenile) -->
       <g class="dragon-wing back-wing">
-        <path d="M 170 135 Q 135 60 100 50 Q 120 100 145 145 Z" fill="${p.primaryDark}" />
-        <path d="M 100 50 Q 125 80 145 145 Q 120 100 100 50 Z" fill="${p.wingMembrane}" opacity="0.8" />
-        <path d="M 115 70 L 140 120" stroke="${p.primaryDark}" stroke-width="2" />
+        <path d="M 160 135 Q 128 55 98 46 Q 118 95 138 145 Z" fill="${p.primaryDark}" />
+        <path d="M 98 46 Q 122 75 138 145 Q 118 95 98 46 Z" fill="${p.wingMembrane}" opacity="0.85" />
+        <path d="M 112 68 L 134 120" stroke="${p.primaryDark}" stroke-width="2.5" />
       </g>
 
       <!-- Juvenile Sleek Body -->
-      <ellipse cx="160" cy="175" rx="58" ry="46" fill="url(#bodyGrad1)" />
+      <ellipse cx="158" cy="176" rx="58" ry="46" fill="url(#bodyGrad1)" />
 
-      <!-- Neck -->
-      <path d="M 160 140 Q 180 105 200 95 L 220 115 Q 195 145 185 160 Z" fill="url(#bodyGrad1)" />
+      <!-- Neck smoothly connecting to head -->
+      <path d="M 148 148 Q 175 110 195 96 L 222 114 Q 192 144 182 165 Z" fill="url(#bodyGrad1)" />
+
+      <!-- Neck dorsal spikes -->
+      <polygon points="168,125 158,112 174,120" fill="${p.horns}" />
+      <polygon points="182,108 174,96 188,104" fill="${p.horns}" />
 
       <!-- Belly Plates -->
-      <path d="M 155 165 Q 180 160 195 140 Q 205 180 190 205 Q 165 210 155 195 Z" fill="url(#bellyGrad1)" />
-      <path d="M 168 175 Q 185 178 195 170" stroke="${p.bellyDark}" stroke-width="2.5" fill="none" />
-      <path d="M 164 190 Q 182 193 192 185" stroke="${p.bellyDark}" stroke-width="2.5" fill="none" />
+      <path d="M 152 164 Q 178 158 196 138 Q 208 178 192 206 Q 166 210 152 194 Z" fill="url(#bellyGrad1)" />
+      <path d="M 165 174 Q 182 178 194 168" stroke="${p.bellyDark}" stroke-width="2.5" fill="none" />
+      <path d="M 162 189 Q 180 193 190 184" stroke="${p.bellyDark}" stroke-width="2.5" fill="none" />
 
       <!-- Legs & Claws -->
-      <ellipse cx="120" cy="215" rx="20" ry="14" fill="${p.primaryDark}" />
-      <ellipse cx="195" cy="218" rx="20" ry="14" fill="${p.primaryDark}" />
-      <path d="M 110 220 L 105 225 M 118 223 L 115 228 M 126 221 L 125 226" stroke="${p.horns}" stroke-width="3" stroke-linecap="round" />
-      <path d="M 188 223 L 185 228 M 196 225 L 195 230 M 204 222 L 205 227" stroke="${p.horns}" stroke-width="3" stroke-linecap="round" />
+      <ellipse cx="122" cy="216" rx="20" ry="14" fill="${p.primaryDark}" />
+      <ellipse cx="192" cy="218" rx="20" ry="14" fill="${p.primaryDark}" />
+      <path d="M 112 220 L 106 226 M 120 223 L 116 229 M 128 221 L 126 227" stroke="${p.horns}" stroke-width="3" stroke-linecap="round" />
+      <path d="M 184 223 L 180 228 M 193 225 L 191 230 M 201 222 L 202 227" stroke="${p.horns}" stroke-width="3" stroke-linecap="round" />
 
-      <!-- Head -->
-      <ellipse cx="215" cy="98" rx="42" ry="34" fill="url(#bodyGrad1)" transform="rotate(5, 215, 98)" />
+      <!-- Head & Horns Group (seamlessly aligned) -->
+      <g class="dragon-head-group">
+        <!-- Back-swept Horns firmly rooted on skull -->
+        <path d="M 182 92 Q 162 58 142 50 Q 162 70 190 86 Z" fill="${p.horns}" />
+        <path d="M 198 84 Q 188 48 174 38 Q 188 62 206 78 Z" fill="${p.horns}" />
 
-      <!-- Head Crest / Horns -->
-      <path d="M 190 74 Q 170 38 150 32 Q 170 55 198 70 Z" fill="${p.horns}" />
-      <path d="M 210 68 Q 200 32 185 24 Q 200 50 218 64 Z" fill="${p.horns}" />
+        <!-- Head Oval -->
+        <ellipse cx="204" cy="112" rx="42" ry="34" fill="url(#bodyGrad1)" />
 
-      <!-- Front Wing (Juvenile) -->
-      <g class="dragon-wing front-wing">
-        <path d="M 140 150 Q 85 70 50 62 Q 75 115 110 170 Z" fill="${p.primary}" />
-        <path d="M 50 62 Q 80 100 110 170 Q 75 115 50 62 Z" fill="${p.wingMembrane}" />
-        <path d="M 72 85 L 102 145" stroke="${p.primaryDark}" stroke-width="2.5" />
-      </g>
+        <!-- Front Wing (Juvenile) -->
+        <g class="dragon-wing front-wing">
+          <path d="M 138 150 Q 82 68 52 58 Q 78 112 110 168 Z" fill="${p.primary}" />
+          <path d="M 52 58 Q 80 98 110 168 Q 78 112 52 58 Z" fill="${p.wingMembrane}" />
+          <path d="M 72 82 L 102 142" stroke="${p.primaryDark}" stroke-width="2.5" />
+          <path d="M 90 98 L 106 150" stroke="${p.primaryDark}" stroke-width="2" />
+        </g>
 
-      <!-- Face -->
-      <g class="dragon-face">
-        <!-- Snout -->
-        <ellipse cx="250" cy="108" rx="18" ry="14" fill="${p.primaryLight}" />
-        <circle cx="260" cy="104" r="3" fill="${p.primaryDark}" />
-        <!-- Playful open mouth smile -->
-        <path d="M 245 116 Q 256 126 264 116" stroke="${p.primaryDark}" stroke-width="3" fill="#c0392b" stroke-linecap="round" />
+        <!-- Face Details -->
+        <g class="dragon-face">
+          <!-- Snout rooted on front of skull -->
+          <ellipse cx="236" cy="120" rx="18" ry="13" fill="${p.primaryLight}" />
+          <circle cx="245" cy="116" r="3" fill="${p.primaryDark}" />
+          <!-- Playful open smile -->
+          <path d="M 232 126 Q 242 134 250 125" stroke="${p.primaryDark}" stroke-width="2.5" fill="#c0392b" stroke-linecap="round" />
 
-        ${isSleeping ? `
-          <path d="M 215 94 Q 230 104 242 94" stroke="${p.primaryDark}" stroke-width="3.5" fill="none" stroke-linecap="round" />
-        ` : `
-          <ellipse cx="228" cy="92" rx="13" ry="15" fill="#ffffff" />
-          <ellipse cx="230" cy="92" rx="10" ry="12" fill="${p.eye}" />
-          <ellipse cx="231" cy="92" rx="6" ry="9" fill="#1e272e" class="dragon-eye-pupil" />
-          <circle cx="228" cy="86" r="4" fill="#ffffff" class="dragon-eye-highlight" />
-          <circle cx="234" cy="96" r="2" fill="#ffffff" class="dragon-eye-highlight" />
-          <ellipse cx="228" cy="92" rx="14" ry="16" fill="${p.primary}" class="dragon-eyelid" style="opacity:0; transition: opacity 0.1s;" />
-        `}
+          ${isSleeping ? `
+            <!-- Sleeping Eye Curve -->
+            <path d="M 206 108 Q 220 118 232 108" stroke="${p.primaryDark}" stroke-width="3.5" fill="none" stroke-linecap="round" />
+          ` : `
+            <!-- Expressive Eye -->
+            <ellipse cx="216" cy="104" rx="12" ry="14" fill="#ffffff" />
+            <ellipse cx="218" cy="104" rx="9" ry="11" fill="${p.eye}" />
+            <ellipse cx="219" cy="104" rx="5" ry="8" fill="#1e272e" class="dragon-eye-pupil" />
+            <circle cx="216" cy="99" r="3.5" fill="#ffffff" class="dragon-eye-highlight" />
+            <circle cx="222" cy="108" r="1.8" fill="#ffffff" class="dragon-eye-highlight" />
+            <ellipse cx="216" cy="104" rx="13" ry="15" fill="${p.primary}" class="dragon-eyelid" style="opacity:0; transition: opacity 0.1s;" />
+          `}
+        </g>
       </g>
     `;
   }
@@ -878,76 +888,81 @@ class DragonPet {
         </filter>
       </defs>
 
-      <!-- Tail -->
+      <!-- Tail with Aerodynamic Blade and Rune -->
       <g class="dragon-tail">
-        <path d="M 110 180 Q 40 180 10 130 Q -5 105 -15 110 Q 15 160 95 210 Z" fill="${p.primaryDark}" />
+        <path d="M 115 180 Q 55 185 28 145 Q 16 125 6 128 Q 22 172 105 210 Z" fill="${p.primaryDark}" />
         <!-- Tail Blade -->
-        <path d="M -15 110 Q -30 85 -10 75 Q 5 95 -15 110 Z" fill="${p.wingMembrane}" />
-        <!-- Tail Rune -->
-        <circle cx="5" cy="115" r="3.5" fill="${p.runeGlow}" filter="url(#runeGlow2)" />
+        <polygon points="6,128 -8,105 12,98 22,120" fill="${p.wingMembrane}" />
+        <circle cx="10" cy="120" r="3.5" fill="${p.runeGlow}" filter="url(#runeGlow2)" />
       </g>
 
       <!-- Back Wing (Adolescent - Large) -->
       <g class="dragon-wing back-wing">
-        <path d="M 165 130 Q 120 30 75 15 Q 105 80 135 140 Z" fill="${p.primaryDark}" />
-        <path d="M 75 15 Q 110 60 135 140 Q 105 80 75 15 Z" fill="${p.wingMembrane}" opacity="0.85" />
-        <path d="M 95 45 L 128 115" stroke="${p.primaryDark}" stroke-width="3" />
-        <path d="M 115 65 L 132 125" stroke="${p.primaryDark}" stroke-width="2.5" />
+        <path d="M 158 130 Q 118 42 78 28 Q 104 88 132 145 Z" fill="${p.primaryDark}" />
+        <path d="M 78 28 Q 110 65 132 145 Q 104 88 78 28 Z" fill="${p.wingMembrane}" opacity="0.85" />
+        <path d="M 98 52 L 128 120" stroke="${p.primaryDark}" stroke-width="3" />
+        <path d="M 116 70 L 132 130" stroke="${p.primaryDark}" stroke-width="2.5" />
       </g>
 
-      <!-- Torso -->
-      <path d="M 120 180 Q 140 130 180 120 Q 210 140 205 190 Q 170 215 120 180 Z" fill="url(#bodyGrad2)" />
+      <!-- Muscular Torso -->
+      <path d="M 115 178 Q 138 124 178 114 Q 212 134 206 188 Q 170 216 115 178 Z" fill="url(#bodyGrad2)" />
 
-      <!-- Graceful Neck -->
-      <path d="M 175 130 Q 205 85 225 65 L 250 85 Q 220 125 195 150 Z" fill="url(#bodyGrad2)" />
+      <!-- Graceful Arched Neck -->
+      <path d="M 152 142 Q 182 96 208 80 L 232 96 Q 202 136 182 162 Z" fill="url(#bodyGrad2)" />
 
-      <!-- Glowing Chest / Belly Runes -->
-      <path d="M 175 145 Q 200 135 215 115 Q 225 165 205 195 Q 180 200 170 180 Z" fill="url(#bellyGrad2)" />
+      <!-- Dorsal Spikes along Neck -->
+      <polygon points="172,120 160,105 178,114" fill="${p.horns}" />
+      <polygon points="188,102 178,88 194,96" fill="${p.horns}" />
+      <polygon points="204,85 196,72 210,80" fill="${p.horns}" />
+
+      <!-- Glowing Chest / Belly Plates -->
+      <path d="M 158 152 Q 186 142 202 122 Q 216 172 198 200 Q 172 206 158 186 Z" fill="url(#bellyGrad2)" />
       <!-- Glowing Ancient Dragon Runes -->
-      <path d="M 188 150 L 198 160 L 188 170" stroke="${p.runeGlow}" stroke-width="3" fill="none" filter="url(#runeGlow2)" />
-      <circle cx="198" cy="175" r="3" fill="${p.runeGlow}" filter="url(#runeGlow2)" />
+      <path d="M 178 158 L 188 168 L 178 178" stroke="${p.runeGlow}" stroke-width="2.5" fill="none" filter="url(#runeGlow2)" />
+      <circle cx="188" cy="184" r="3" fill="${p.runeGlow}" filter="url(#runeGlow2)" />
 
       <!-- Strong Muscular Legs -->
-      <ellipse cx="125" cy="210" rx="22" ry="15" fill="${p.primaryDark}" />
-      <ellipse cx="195" cy="215" rx="22" ry="15" fill="${p.primaryDark}" />
-      <path d="M 112 215 L 105 222 M 122 218 L 118 226 M 132 216 L 130 224" stroke="${p.horns}" stroke-width="3.5" stroke-linecap="round" />
-      <path d="M 185 218 L 180 226 M 195 222 L 192 229 M 205 218 L 205 226" stroke="${p.horns}" stroke-width="3.5" stroke-linecap="round" />
-
-      <!-- Majestic Head -->
-      <ellipse cx="242" cy="68" rx="44" ry="32" fill="url(#bodyGrad2)" transform="rotate(8, 242, 68)" />
-
-      <!-- Long Swept-Back Horns -->
-      <path d="M 215 48 Q 185 10 155 2 Q 185 30 225 45 Z" fill="${p.horns}" />
-      <path d="M 235 42 Q 215 5 190 0 Q 215 22 242 38 Z" fill="${p.horns}" />
+      <ellipse cx="124" cy="214" rx="22" ry="15" fill="${p.primaryDark}" />
+      <ellipse cx="194" cy="216" rx="22" ry="15" fill="${p.primaryDark}" />
+      <path d="M 112 218 L 105 225 M 122 221 L 118 228 M 132 219 L 130 226" stroke="${p.horns}" stroke-width="3.5" stroke-linecap="round" />
+      <path d="M 185 220 L 180 227 M 195 223 L 192 229 M 204 220 L 204 227" stroke="${p.horns}" stroke-width="3.5" stroke-linecap="round" />
 
       <!-- Front Wing (Adolescent - Sweeping) -->
       <g class="dragon-wing front-wing">
-        <path d="M 140 145 Q 65 35 20 20 Q 55 95 100 165 Z" fill="${p.primary}" />
-        <path d="M 20 20 Q 60 75 100 165 Q 55 95 20 20 Z" fill="${p.wingMembrane}" />
-        <path d="M 50 48 L 92 135" stroke="${p.primaryDark}" stroke-width="3" />
-        <path d="M 75 70 L 98 145" stroke="${p.primaryDark}" stroke-width="2.5" />
-        <!-- Wing Claw -->
-        <circle cx="20" cy="20" r="3.5" fill="${p.horns}" />
+        <path d="M 136 146 Q 72 48 36 34 Q 65 102 104 168 Z" fill="${p.primary}" />
+        <path d="M 36 34 Q 70 82 104 168 Q 65 102 36 34 Z" fill="${p.wingMembrane}" />
+        <path d="M 60 62 L 96 138" stroke="${p.primaryDark}" stroke-width="3" />
+        <path d="M 80 82 L 102 148" stroke="${p.primaryDark}" stroke-width="2.5" />
+        <circle cx="36" cy="34" r="3.5" fill="${p.horns}" />
       </g>
 
-      <!-- Face -->
-      <g class="dragon-face">
-        <!-- Snout -->
-        <ellipse cx="278" cy="78" rx="20" ry="14" fill="${p.primaryLight}" />
-        <circle cx="290" cy="74" r="3.5" fill="${p.primaryDark}" />
-        <path d="M 272 86 Q 284 94 294 84" stroke="${p.primaryDark}" stroke-width="3" fill="none" stroke-linecap="round" />
+      <!-- Head & Horns Group -->
+      <g class="dragon-head-group">
+        <!-- Sweeping Horns firmly anchored on skull -->
+        <path d="M 194 72 Q 170 32 140 22 Q 168 46 204 66 Z" fill="${p.horns}" />
+        <path d="M 212 65 Q 194 25 168 16 Q 194 40 220 60 Z" fill="${p.horns}" />
 
-        ${isSleeping ? `
-          <path d="M 245 62 Q 260 74 274 62" stroke="${p.primaryDark}" stroke-width="4" fill="none" stroke-linecap="round" />
-        ` : `
-          <ellipse cx="256" cy="62" rx="14" ry="15" fill="#ffffff" />
-          <ellipse cx="258" cy="62" rx="10" ry="12" fill="${p.eye}" />
-          <!-- Slit / Proud Dragon Pupil -->
-          <ellipse cx="259" cy="62" rx="4.5" ry="10" fill="#1e272e" class="dragon-eye-pupil" />
-          <circle cx="256" cy="56" r="4" fill="#ffffff" class="dragon-eye-highlight" />
-          <circle cx="261" cy="66" r="2" fill="#ffffff" class="dragon-eye-highlight" />
-          <ellipse cx="256" cy="62" rx="15" ry="16" fill="${p.primary}" class="dragon-eyelid" style="opacity:0; transition: opacity 0.1s;" />
-        `}
+        <!-- Head Oval -->
+        <ellipse cx="216" cy="94" rx="44" ry="32" fill="url(#bodyGrad2)" />
+
+        <!-- Face Details -->
+        <g class="dragon-face">
+          <!-- Snout firmly attached to head -->
+          <ellipse cx="250" cy="100" rx="20" ry="14" fill="${p.primaryLight}" />
+          <circle cx="260" cy="96" r="3.5" fill="${p.primaryDark}" />
+          <path d="M 244 106 Q 255 113 264 104" stroke="${p.primaryDark}" stroke-width="3" fill="none" stroke-linecap="round" />
+
+          ${isSleeping ? `
+            <path d="M 218 88 Q 232 100 244 88" stroke="${p.primaryDark}" stroke-width="4" fill="none" stroke-linecap="round" />
+          ` : `
+            <ellipse cx="228" cy="86" rx="13" ry="14" fill="#ffffff" />
+            <ellipse cx="230" cy="86" rx="9" ry="11" fill="${p.eye}" />
+            <ellipse cx="231" cy="86" rx="4.5" ry="9" fill="#1e272e" class="dragon-eye-pupil" />
+            <circle cx="228" cy="81" r="3.5" fill="#ffffff" class="dragon-eye-highlight" />
+            <circle cx="233" cy="90" r="1.8" fill="#ffffff" class="dragon-eye-highlight" />
+            <ellipse cx="228" cy="86" rx="14" ry="15" fill="${p.primary}" class="dragon-eyelid" style="opacity:0; transition: opacity 0.1s;" />
+          `}
+        </g>
       </g>
     `;
   }
@@ -978,85 +993,89 @@ class DragonPet {
         </filter>
       </defs>
 
-      <!-- Grand Spiked Tail -->
+      <!-- Grand Spiked Tail with Crown Blade -->
       <g class="dragon-tail">
-        <path d="M 105 175 Q 30 170 -10 115 Q -30 85 -45 90 Q -10 150 85 205 Z" fill="${p.primaryDark}" />
+        <path d="M 110 178 Q 45 180 20 135 Q 8 110 2 114 Q 18 165 98 210 Z" fill="${p.primaryDark}" />
         <!-- Crown Tail Blade -->
-        <polygon points="-45,90 -65,65 -40,55 -30,75" fill="${p.wingMembrane}" />
-        <polygon points="-40,55 -50,35 -25,40" fill="${p.belly}" />
-        <circle cx="-25" cy="95" r="4" fill="${p.runeGlow}" filter="url(#runeGlow3)" />
+        <polygon points="2,114 -12,90 8,82 18,105" fill="${p.wingMembrane}" />
+        <polygon points="8,82 2,68 18,72" fill="${p.belly}" />
+        <circle cx="6" cy="108" r="4" fill="${p.runeGlow}" filter="url(#runeGlow3)" />
       </g>
 
       <!-- Back Wing (Grand Regal Wingspan) -->
       <g class="dragon-wing back-wing">
-        <path d="M 160 120 Q 105 5 50 -15 Q 90 60 125 135 Z" fill="${p.primaryDark}" />
-        <path d="M 50 -15 Q 90 40 125 135 Q 90 60 50 -15 Z" fill="${p.wingMembrane}" opacity="0.9" />
-        <path d="M 75 18 L 115 105" stroke="${p.primaryDark}" stroke-width="3.5" />
-        <path d="M 98 42 L 120 115" stroke="${p.primaryDark}" stroke-width="3" />
-        <!-- Glowing Wing Runes -->
-        <circle cx="85" cy="50" r="3.5" fill="${p.runeGlow}" filter="url(#runeGlow3)" />
+        <path d="M 155 125 Q 105 28 62 14 Q 92 80 128 145 Z" fill="${p.primaryDark}" />
+        <path d="M 62 14 Q 98 56 128 145 Q 92 80 62 14 Z" fill="${p.wingMembrane}" opacity="0.9" />
+        <path d="M 84 38 L 120 115" stroke="${p.primaryDark}" stroke-width="3.5" />
+        <path d="M 104 58 L 126 128" stroke="${p.primaryDark}" stroke-width="3" />
+        <circle cx="75" cy="42" r="3.5" fill="${p.runeGlow}" filter="url(#runeGlow3)" />
       </g>
 
-      <!-- Regal Torso & Shoulder Crest -->
-      <path d="M 110 175 Q 135 115 185 105 Q 220 125 215 185 Q 170 215 110 175 Z" fill="url(#bodyGrad3)" />
+      <!-- Regal Torso -->
+      <path d="M 110 175 Q 135 116 182 106 Q 216 126 210 186 Q 168 216 110 175 Z" fill="url(#bodyGrad3)" />
 
       <!-- Elegant Arched Neck -->
-      <path d="M 180 115 Q 215 65 240 45 L 268 68 Q 230 115 200 145 Z" fill="url(#bodyGrad3)" />
+      <path d="M 148 136 Q 178 84 206 68 L 232 84 Q 204 126 180 156 Z" fill="url(#bodyGrad3)" />
+
+      <!-- Royal Dorsal Spikes along Neck -->
+      <polygon points="166,112 154,96 172,106" fill="${p.horns}" />
+      <polygon points="182,94 170,78 188,88" fill="${p.horns}" />
+      <polygon points="198,76 188,62 204,70" fill="${p.horns}" />
 
       <!-- Armored Golden Belly Plates -->
-      <path d="M 185 135 Q 215 120 230 100 Q 240 155 215 190 Q 185 198 175 175 Z" fill="url(#bellyGrad3)" />
+      <path d="M 160 144 Q 190 132 208 112 Q 222 164 202 194 Q 174 200 160 180 Z" fill="url(#bellyGrad3)" />
       <!-- Ancient Guardian Runes Glowing on Chest -->
-      <path d="M 200 135 L 212 148 L 200 162 L 188 148 Z" stroke="${p.runeGlow}" stroke-width="2.5" fill="none" filter="url(#runeGlow3)" />
-      <line x1="200" y1="130" x2="200" y2="170" stroke="${p.runeGlow}" stroke-width="2" filter="url(#runeGlow3)" />
-      <circle cx="200" cy="148" r="3.5" fill="#ffffff" filter="url(#runeGlow3)" />
+      <path d="M 180 148 L 192 160 L 180 172 L 168 160 Z" stroke="${p.runeGlow}" stroke-width="2.5" fill="none" filter="url(#runeGlow3)" />
+      <line x1="180" y1="142" x2="180" y2="178" stroke="${p.runeGlow}" stroke-width="2" filter="url(#runeGlow3)" />
+      <circle cx="180" cy="160" r="3.5" fill="#ffffff" filter="url(#runeGlow3)" />
 
       <!-- Powerful Guardian Paws with Golden Claws -->
-      <ellipse cx="125" cy="205" rx="24" ry="16" fill="${p.primaryDark}" />
-      <ellipse cx="205" cy="210" rx="24" ry="16" fill="${p.primaryDark}" />
-      <path d="M 110 208 L 100 216 M 122 212 L 116 222 M 134 210 L 132 220" stroke="${p.belly}" stroke-width="4" stroke-linecap="round" />
-      <path d="M 192 212 L 185 222 M 204 216 L 202 225 M 216 212 L 216 221" stroke="${p.belly}" stroke-width="4" stroke-linecap="round" />
-
-      <!-- Regal Head with Crown Crest -->
-      <ellipse cx="258" cy="50" rx="46" ry="34" fill="url(#bodyGrad3)" transform="rotate(10, 258, 50)" />
-
-      <!-- Magnificent Sweeping Dual Horns -->
-      <path d="M 225 32 Q 190 -15 145 -25 Q 185 5 235 26 Z" fill="${p.horns}" />
-      <path d="M 248 24 Q 220 -25 185 -35 Q 220 -5 256 18 Z" fill="${p.horns}" />
-      <!-- Golden Horn Rings -->
-      <path d="M 185 -5 L 188 2" stroke="${p.belly}" stroke-width="3" />
-      <path d="M 215 5 L 218 12" stroke="${p.belly}" stroke-width="3" />
+      <ellipse cx="124" cy="212" rx="24" ry="16" fill="${p.primaryDark}" />
+      <ellipse cx="198" cy="214" rx="24" ry="16" fill="${p.primaryDark}" />
+      <path d="M 110 216 L 102 223 M 122 219 L 117 227 M 134 217 L 132 225" stroke="${p.belly}" stroke-width="4" stroke-linecap="round" />
+      <path d="M 188 220 L 182 227 M 198 223 L 196 230 M 208 219 L 208 226" stroke="${p.belly}" stroke-width="4" stroke-linecap="round" />
 
       <!-- Front Wing (Magnificent Adult Wingspan) -->
       <g class="dragon-wing front-wing">
-        <path d="M 135 135 Q 45 5 -10 -20 Q 30 75 85 160 Z" fill="${p.primary}" />
-        <path d="M -10 -20 Q 35 55 85 160 Q 30 75 -10 -20 Z" fill="${p.wingMembrane}" />
-        <path d="M 25 22 L 75 125" stroke="${p.primaryDark}" stroke-width="3.5" />
-        <path d="M 55 48 L 84 138" stroke="${p.primaryDark}" stroke-width="3" />
-        <!-- Wing Bone Claw -->
-        <polygon points="-10,-20 -22,-30 -8,-25" fill="${p.horns}" />
-        <!-- Wing Runes -->
-        <circle cx="35" cy="50" r="4" fill="${p.runeGlow}" filter="url(#runeGlow3)" />
-        <circle cx="58" cy="85" r="3.5" fill="${p.runeGlow}" filter="url(#runeGlow3)" />
+        <path d="M 134 140 Q 56 32 18 16 Q 52 86 98 164 Z" fill="${p.primary}" />
+        <path d="M 18 16 Q 56 68 98 164 Q 52 86 18 16 Z" fill="${p.wingMembrane}" />
+        <path d="M 46 44 L 88 132" stroke="${p.primaryDark}" stroke-width="3.5" />
+        <path d="M 70 66 L 96 142" stroke="${p.primaryDark}" stroke-width="3" />
+        <polygon points="18,16 6,8 18,12" fill="${p.horns}" />
+        <circle cx="36" cy="38" r="4" fill="${p.runeGlow}" filter="url(#runeGlow3)" />
+        <circle cx="56" cy="70" r="3.5" fill="${p.runeGlow}" filter="url(#runeGlow3)" />
       </g>
 
-      <!-- Regal Face -->
-      <g class="dragon-face">
-        <!-- Snout -->
-        <ellipse cx="296" cy="62" rx="22" ry="15" fill="${p.primaryLight}" />
-        <circle cx="310" cy="57" r="4" fill="${p.primaryDark}" />
-        <path d="M 288 70 Q 302 78 314 68" stroke="${p.primaryDark}" stroke-width="3.5" fill="none" stroke-linecap="round" />
+      <!-- Head & Horns Group -->
+      <g class="dragon-head-group">
+        <!-- Magnificent Sweeping Dual Horns firmly anchored on skull -->
+        <path d="M 194 60 Q 166 18 130 8 Q 160 35 204 55 Z" fill="${p.horns}" />
+        <path d="M 212 52 Q 190 10 160 0 Q 190 26 222 47 Z" fill="${p.horns}" />
+        <!-- Golden Horn Rings -->
+        <path d="M 160 18 L 164 24" stroke="${p.belly}" stroke-width="3" />
+        <path d="M 186 36 L 190 42" stroke="${p.belly}" stroke-width="3" />
 
-        ${isSleeping ? `
-          <path d="M 260 45 Q 278 58 294 45" stroke="${p.primaryDark}" stroke-width="4.5" fill="none" stroke-linecap="round" />
-        ` : `
-          <ellipse cx="274" cy="45" rx="15" ry="16" fill="#ffffff" />
-          <ellipse cx="276" cy="45" rx="11" ry="13" fill="${p.eye}" />
-          <!-- Intelligent Mystic Slit Pupil -->
-          <ellipse cx="277" cy="45" rx="4" ry="11" fill="#1e272e" class="dragon-eye-pupil" />
-          <circle cx="273" cy="38" r="4.5" fill="#ffffff" class="dragon-eye-highlight" />
-          <circle cx="280" cy="48" r="2" fill="#ffffff" class="dragon-eye-highlight" />
-          <ellipse cx="274" cy="45" rx="16" ry="17" fill="${p.primary}" class="dragon-eyelid" style="opacity:0; transition: opacity 0.1s;" />
-        `}
+        <!-- Regal Skull -->
+        <ellipse cx="218" cy="82" rx="46" ry="32" fill="url(#bodyGrad3)" />
+
+        <!-- Regal Face Details -->
+        <g class="dragon-face">
+          <!-- Snout firmly attached to front of skull -->
+          <ellipse cx="254" cy="88" rx="22" ry="15" fill="${p.primaryLight}" />
+          <circle cx="265" cy="84" r="4" fill="${p.primaryDark}" />
+          <path d="M 248 94 Q 260 102 270 92" stroke="${p.primaryDark}" stroke-width="3.5" fill="none" stroke-linecap="round" />
+
+          ${isSleeping ? `
+            <path d="M 220 74 Q 236 86 248 74" stroke="${p.primaryDark}" stroke-width="4.5" fill="none" stroke-linecap="round" />
+          ` : `
+            <ellipse cx="230" cy="72" rx="14" ry="15" fill="#ffffff" />
+            <ellipse cx="232" cy="72" rx="10" ry="12" fill="${p.eye}" />
+            <ellipse cx="233" cy="72" rx="4" ry="10" fill="#1e272e" class="dragon-eye-pupil" />
+            <circle cx="230" cy="66" r="4" fill="#ffffff" class="dragon-eye-highlight" />
+            <circle cx="236" cy="76" r="2" fill="#ffffff" class="dragon-eye-highlight" />
+            <ellipse cx="230" cy="72" rx="15" ry="16" fill="${p.primary}" class="dragon-eyelid" style="opacity:0; transition: opacity 0.1s;" />
+          `}
+        </g>
       </g>
     `;
   }
